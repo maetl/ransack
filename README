@@ -1,0 +1,38 @@
+=============================================================================================
+Ransack - Flexible PHP Build Tools
+Version 0.0.1
+=============================================================================================
+
+Ransack is a build server developed in PHP, and designed specifically for managing
+continuous integration on PHP projects.
+
+WHAT YAK SHAVING IS THIS? You might ask, and quite rightly so. Why yet another continuous
+integration tool when various free implementations already exist?
+
+Ransack was created to address several unique areas that the most widely known open source 
+CI servers do not effectively cover.
+
+  - Independent of PEAR/PHPUnit - Ransack is built from the ground up to be free of 
+    core dependencies on the PHPUnit infrastructure. Partly, this is because we are
+    fans (and contributors) to SimpleTest, and we wanted a tool that was more agnostic
+    towards a particular project choice in unit testing libraries.
+
+  - Flexible customization of reporting and visualization. Ransack was not made
+    for programmers, by programmers. It was made for designers AND programmers,
+    and it treats visual presentation as a first class concern. You can skin it
+    easily to suit your own branding, and the way your organization prefers to
+    do things.
+
+  - It's simple. You install Ransack the same way you would install any other PHP app,
+    and we wouldn't have it any other way. Using a brute force (and crappy) approach
+    to polling, we can provide all the benefits of a solid CI foundation without
+    recourse to complex configuration or weird port wrangling. Do all that in Apache.
+    Ransack just sits back and takes care of managing your code and logs.
+
+Let us know what you think!
+
+See our project hub at http://code.google.com/p/ransack/
+
+=============================================================================================
+Ransack was brought to you by maetl (http://maetl.coretxt.net.nz)
+=============================================================================================
