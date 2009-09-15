@@ -1,10 +1,9 @@
 =============================================================================================
-Ransack - Flexible PHP Build Tools
-Version 0.0.1
+Ransack - Scouring PHP Projects
 =============================================================================================
 
-Ransack is a build server developed in PHP, and designed specifically for managing
-continuous integration on PHP projects.
+Ransack is a build server designed specifically for managing continuous integration
+on PHP projects.
 
 WHAT YAK SHAVING IS THIS? You might ask, and quite rightly so. Why yet another continuous
 integration tool when various free implementations already exist?
@@ -34,5 +33,5 @@ Let us know what you think!
 See our project hub at http://code.google.com/p/ransack/
 
 =============================================================================================
-Ransack was brought to you by maetl (http://maetl.coretxt.net.nz)
+Ransack is brought to you by maetl (http://maetl.net)
 =============================================================================================
