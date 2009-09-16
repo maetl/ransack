@@ -1,0 +1,15 @@
+DefaultLanguage   en 
+ServerSignature   Off
+
+# rewrite rules
+RewriteEngine     On
+
+# redirect to the unavailable message page if it exists in the web root
+RewriteCond       %{DOCUMENT_ROOT}/unavailable.php -f
+RewriteCond       %{SCRIPT_FILENAME} !/unavailable.php
+RewriteRule       ^.*$ /unavailable.php [L]
+
+# redirect all URLs that are not files or directories to index.php
+RewriteCond       %{REQUEST_FILENAME} !-f
+RewriteCond       %{REQUEST_FILENAME} !-d
+RewriteRule       ^(.*)$ /index.php?path=$1 [L,QSA]
