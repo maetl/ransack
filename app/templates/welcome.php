@@ -32,13 +32,13 @@
 
 <tr>
 	<td>MySQL Password</td>
-	<td><input type="text" name="DB_HOST"></td>
+	<td><input type="text" name="DB_PASS"></td>
 </tr>
 
 
 <tr>
 	<td>MySQL Database Name</td>
-	<td><input type="text" name="DB_HOST"></td>
+	<td><input type="text" name="DB_NAME"></td>
 </tr>
 
 </table>

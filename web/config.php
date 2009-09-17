@@ -20,4 +20,9 @@ require_once LIB_DIR .'floe/framework/Package.class.php';
 require_once LIB_DIR .'floe/server/Membrane.class.php';
 require_once LIB_DIR .'floe/server/receptors/IdentityDispatcher.class.php';
 
+define('DB_USER', 'integration');
+define('DB_PASS', 'rLMFmxvZrndXUF7h');
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'ransack');
+			
 ?>
