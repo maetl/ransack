@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Ransack task runner
+ */
+require_once 'web/config.php';
+require_once 'lib/floe/tools/ShellScript.class.php';
+
+ShellScript::start();
+
+?>
