@@ -6,6 +6,7 @@
 require_once 'web/config.php';
 require_once 'lib/floe/tools/ShellScript.class.php';
 
+ConsoleText::banner(dirname(__FILE__).'/BANNER');
 ShellScript::start();
 
 ?>

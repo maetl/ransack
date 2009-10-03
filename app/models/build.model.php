@@ -27,6 +27,12 @@ class Build extends Record {
 		$db->select("builds", "ORDER BY at DESC");
 		return $db->getRecords();
 	}
+
+	function addTest($data) {
+		$test = new Test();
+		$test->output = $data;
+		$this->tests = $test;
+	}
 	
 	function addReport($data) {
 		$report = new Report();

@@ -14,6 +14,7 @@ class Project extends Record {
 		$this->property("description", "string");
 		$this->property("sourcePath", "string");
 		$this->property("buildCommand", "string");
+		$this->property("testCommand", "string");
 		$this->property("codeStandard", "string");
 		$this->hasMany("builds");
 		$this->analysisPlugins[] = "Depend";
@@ -30,10 +31,16 @@ class Project extends Record {
 	
 	function build() {
 		$build = new Build();
+		
 		// step 1. build the target
 		shell_exec("cd {$this->sourcePath}; {$this->buildCommand}");
+		
 		// step 2. run tests
-		// # not implemented
+		require_once LIB_DIR."ransack/SimpleTestReport.class.php";
+		$tests = new SimpleTestReport();
+		$tests->analyze($this->testCommand);
+		$build->addTest($tests->getReport());
+		
 		// step 3. run analysis
 		foreach($this->analysisPlugins as $plugin) {
 			require_once LIB_DIR."ransack/{$plugin}.class.php";
@@ -41,6 +48,7 @@ class Project extends Record {
 			$analyzer->analyze($this->sourcePath);
 			$build->addReport($analyzer->getReport());
 		}
+		
 		$build->identifier = rand(999,9999);
 		$build->at = MOMENT;
 		$build->isComplete = true;

@@ -8,6 +8,14 @@
 	<div class="log">
 		<h3 class="build-label"><?php echo $build->summary; ?></h3>
 		
+		<?php foreach($build->tests as $test): ?>
+			
+		<div class="report">
+			<pre><?php echo $test->output; ?></pre>
+		</div>
+			
+		<?php endforeach; ?>
+		
 		<?php foreach($build->reports as $report): ?>
 			
 		<div class="report">
