@@ -3,7 +3,7 @@
 // Main app configuration settings
 // ------------------------------------------------------------------
 
-define('WEB_HOST', $_SERVER['HTTP_HOST']);
+if (isset($_SERVER['HTTP_HOST'])) define('WEB_HOST', $_SERVER['HTTP_HOST']);
 
 define('APP_DIR', dirname(__FILE__)."/../app/");
 define('DEV_DIR', dirname(__FILE__)."/../dev/");
@@ -20,9 +20,11 @@ require_once LIB_DIR .'floe/framework/Package.class.php';
 require_once LIB_DIR .'floe/server/Membrane.class.php';
 require_once LIB_DIR .'floe/server/receptors/IdentityDispatcher.class.php';
 
-define('DB_USER', 'integration');
-define('DB_PASS', 'rLMFmxvZrndXUF7h');
+define('DB_USER', 'default');
+define('DB_PASS', 'launch');
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'ransack');
-			
+
+define('PATH_TO_PEAR', '/Applications/MAMP/bin/php5/bin/');
+
 ?>

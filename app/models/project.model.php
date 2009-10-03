@@ -16,7 +16,7 @@ class Project extends Record {
 		$this->property("buildCommand", "string");
 		$this->property("codeStandard", "string");
 		$this->hasMany("builds");
-		//$this->analysisPlugins[] = "Depend";
+		$this->analysisPlugins[] = "Depend";
 		$this->analysisPlugins[] = "LineCount";
 		$this->analysisPlugins[] = "CodeSniffer";
 		$this->analysisPlugins[] = "CopyPasteDetector";
@@ -36,7 +36,6 @@ class Project extends Record {
 		// # not implemented
 		// step 3. run analysis
 		foreach($this->analysisPlugins as $plugin) {
-			// move from lib to app?
 			require_once LIB_DIR."ransack/{$plugin}.class.php";
 			$analyzer = new $plugin($this->codeStandard);
 			$analyzer->analyze($this->sourcePath);
