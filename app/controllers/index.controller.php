@@ -1,6 +1,7 @@
 <?php
-
-require_once MOD_DIR.'/projects.finder.php';
+require_once LIB_DIR.'spyc/Spyc.class.php';
+require_once MOD_DIR.'build.model.php';
+require_once MOD_DIR.'agent.service.php';
 
 class IndexController extends IdentityController {
 	
@@ -9,11 +10,13 @@ class IndexController extends IdentityController {
 			$this->response->assign('storage', 'MySQL');
 			$this->response->render('welcome');
 		} else {
-		
-			$projects = new ProjectsFinder();
-			$this->response->assign('projects', $projects->findAll());
+			$this->response->assign('builds', Build::findRecent());
 			$this->response->render('index');
 		}
+	}
+	
+	function configuration() {
+		$this->response->render('configuration');
 	}
 	
 }
