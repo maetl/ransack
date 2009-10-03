@@ -1,0 +1,107 @@
+* {
+	margin:0;
+	padding:0;
+}
+
+body {
+	font-family:"Lucida Grande";
+	font-size:10px;
+	line-height:18px;
+	background-color:#eee;
+}
+
+.header {
+	width:100%;
+	float:left;
+	background-color:#000;
+}
+
+h1,.tagline {
+	font-size:360%;
+	line-height:100%;
+	font-family:"American Typewriter","Courier";
+	background-color:#000;
+	float:left;
+	color:#fff;
+	font-weight:bold;
+}
+
+.tagline {
+	font-size:360%;
+	line-height:100%;
+	font-family:"American Typewriter","Courier";
+	background-color:#fff;
+	float:left;
+	color:#000;
+	font-weight:bold;
+}
+
+.wrap {
+	margin:0 auto;
+	width:960px;
+	background-color:#fff;
+	color:#000;
+}
+
+.content {
+	background-color:#fff;
+	width:100%;
+	float:left;
+	padding:24px 0;
+}
+
+.footer {
+	width:100%;
+	background-color:#fff;
+	float:left;
+}
+
+h2 {
+	font-size:240%;
+}
+
+p {
+	font-size:12px;
+}
+
+.project, .log {
+	margin:12px;
+}
+
+.project {
+	border:3px solid #efefef;
+	padding:3px;
+}
+
+.log ul {
+	list-style-type:none;
+}
+
+.log li .build-label {
+	background-color:#000;
+	color:#fff;
+	font-weight:bold;
+	padding:3px;
+}
+
+.log .build-summary {
+	background-color:#ccc;
+}
+
+.log h3.build-label {
+	font-size:180%;
+	background-color:#000;
+	color:#fff;
+	font-weight:bold;
+	padding:3px;
+}
+
+.report.fail {
+	border:3px solid #eee;
+}
+
+.report-summary {
+	margin:6px;
+	padding:6px;
+	background-color:#efefef;
+}
