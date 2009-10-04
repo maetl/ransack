@@ -6,10 +6,10 @@
  <link rel="stylesheet" type="text/css" href="/ui/css/ransack.css">
 </head>
 <body>
-<div class="wrap">
 <div class="header">
 	<h1><a href="/">Ransack</a></h1>
 </div>
+<div class="wrap">
 <div class="content">
 	
 	<?php echo $output; ?>

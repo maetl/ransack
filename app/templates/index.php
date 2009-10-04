@@ -1,8 +1,36 @@
 <?php $this->wrap('layout'); ?>
 	
+<?php if (empty($projects)): ?>
+	
 	<div class="project">
-		<h2>Latest Builds</h2>
+		<h2>No projects are installed...</h2>
 	</div>
+
+<?php else: ?>	
+
+
+
+<?php foreach($projects as $project): ?>
+
+	<div class="project">
+		<p>Project:</p>
+		<h3><a href="/project/<?php echo $project->name; ?>"><?php echo $project->title; ?></a></h3>
+	</div>
+
+<?php endforeach; endif; ?>
+
+	
+	<?php if (empty($builds)): ?>
+		
+		<div class="project">
+			<h2>No projects have been built yet...</h2>
+		</div>
+	
+	<?php else: ?>	
+	
+		<div class="project">
+			<h2>Latest Builds</h2>
+		</div>
 	
 	<?php foreach($builds as $build): ?>
 	
@@ -16,5 +44,5 @@
 		</ul>
 	</div>
 	
-	<?php endforeach; ?>
+	<?php endforeach; endif; ?>
 	

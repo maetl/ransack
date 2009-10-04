@@ -1,5 +1,6 @@
 <?php
 Package::import('floe.repository.Record');
+Using::model("Build");
 
 /**
  * A project requires a link to source repository and local installation.
@@ -22,6 +23,12 @@ class Project extends Record {
 		$this->analysisPlugins[] = "CodeSniffer";
 		$this->analysisPlugins[] = "CopyPasteDetector";
 	}
+	
+	static function findAll() {
+		$db = StorageAdaptor::instance();
+		$db->selectAll("projects");
+		return $db->getRecords();
+	}	
 	
 	static function findByName($name) {
 		$db = StorageAdaptor::instance();

@@ -14,9 +14,11 @@ body {
 	width:100%;
 	float:left;
 	background-color:#000;
+	border-bottom:3px solid #444;
 }
 
 h1,.tagline {
+	margin:3px;
 	font-size:360%;
 	line-height:100%;
 	font-family:"American Typewriter","Courier";
@@ -38,6 +40,7 @@ h1,.tagline {
 
 h1 a {
 	color:white;
+	text-decoration:none;
 }
 
 .wrap {

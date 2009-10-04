@@ -1,7 +1,7 @@
 <?php $this->wrap('layout'); ?>
 
 	<div class="project">
-		<h2><?php echo $build->project->title ?> &raquo; Build <?php echo $build->identifier; ?></h2>
+		<h2><a href="/project/<?php echo $build->project->name ?>"><?php echo $build->project->title ?></a> &raquo; Build <?php echo $build->identifier; ?></h2>
 		<p><?php echo $build->at->format('Y-n-d H:i:s'); ?></p>
 	</div>
 	

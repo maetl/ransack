@@ -2,7 +2,7 @@
 
 class AgentService {
 	
-	static function startBuild($project) {
+	static function startBuild($project) {	
 		$project->build();
 	}
 	

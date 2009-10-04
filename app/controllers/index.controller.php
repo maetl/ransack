@@ -10,12 +10,14 @@ class IndexController extends IdentityController {
 			$this->response->assign('storage', 'MySQL');
 			$this->response->render('welcome');
 		} else {
+			$this->response->assign('projects', Project::findAll());
 			$this->response->assign('builds', Build::findRecent());
 			$this->response->render('index');
 		}
 	}
 	
 	function configuration() {
+		//$this->response->dump(Spyc::YAMLLoad(DEV_DIR.'/config/ransack.yml'));			
 		$this->response->render('configuration');
 	}
 	
