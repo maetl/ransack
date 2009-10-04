@@ -6,25 +6,26 @@
 	</div>
 	
 	<div class="log">
-		<h3 class="build-label"><?php echo $build->summary; ?></h3>
+		<ul>
 		
 		<?php foreach($build->tests as $test): ?>
 			
-		<div class="report">
-			<pre><?php echo $test->output; ?></pre>
-		</div>
+		<li>
+			<p class="build-label <?php echo $build->isGreen() ? 'pass' : 'fail'; ?>"><?php echo $test->passes; ?> passes, <?php echo $test->failures; ?> failures, and <?php echo $test->exceptions; ?> exceptions.</p>
+			<div class="build-summary">
+				<pre><?php echo $test->output; ?></pre>
+			</div>
+		</li>
 			
 		<?php endforeach; ?>
 		
 		<?php foreach($build->reports as $report): ?>
-			
-		<div class="report">
-			<h5><?php echo $report->identifier; ?></h5>
+		<li>	
+			<p class="build-label"><?php echo $report->identifier; ?></p>
 			<p><?php echo $report->summary; ?></p>
-			<pre><?php echo $report->report; ?></pre>
-		</div>
-			
+			<div class="build-summary"><pre><?php echo $report->report; ?></pre>
+		</div></li>
 		<?php endforeach; ?>
-		
+		</ul>
 	</div>
 	

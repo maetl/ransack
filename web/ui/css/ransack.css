@@ -13,7 +13,7 @@ body {
 .header {
 	width:100%;
 	float:left;
-	background-color:#000;
+	background-color:#222;
 	border-bottom:3px solid #444;
 }
 
@@ -84,10 +84,11 @@ p {
 	list-style-type:none;
 }
 
-.log li .build-label {
+.build-label {
 	color:#fff;
 	font-weight:bold;
 	padding:3px;
+	background-color:#444;
 }
 
 .build-label a {
@@ -96,11 +97,11 @@ p {
 }
 
 .build-label.pass {
-	background-color:green;
+	background-color:#629F24;
 }
 
 .build-label.fail {
-	background-color:red;
+	background-color:#AF2015;
 }
 
 .log .build-summary {
@@ -123,4 +124,14 @@ p {
 	margin:6px;
 	padding:6px;
 	background-color:#efefef;
+}
+
+pre {
+	padding:6px;
+	font-family:Courier;
+	font-size:13px;
+}
+
+.log li {
+	margin-bottom:12px;
 }

@@ -8,25 +8,27 @@
 
 <?php else: ?>	
 
-
-
-<?php foreach($projects as $project): ?>
-
 	<div class="project">
-		<p>Project:</p>
-		<h3><a href="/project/<?php echo $project->name; ?>"><?php echo $project->title; ?></a></h3>
+		<p>Projects:</p>
+
+		<?php foreach($projects as $project): ?>
+
+		<h3>&raquo; <a href="/project/<?php echo $project->name; ?>"><?php echo $project->title; ?></a></h3>
+
+		<?php endforeach; ?>
+
 	</div>
 
-<?php endforeach; endif; ?>
+<?php endif; ?>
 
 	
-	<?php if (empty($builds)): ?>
+<?php if (empty($builds)): ?>
 		
 		<div class="project">
 			<h2>No projects have been built yet...</h2>
 		</div>
 	
-	<?php else: ?>	
+<?php else: ?>	
 	
 		<div class="project">
 			<h2>Latest Builds</h2>

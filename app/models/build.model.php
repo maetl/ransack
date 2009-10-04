@@ -1,8 +1,7 @@
 <?php
 Package::import('floe.repository.Record');
 Package::import('ransack.SubversionRepository');
-//Package::import('app.models.Project');
-require_once MOD_DIR.'project.model.php';
+Using::model('Project');
 
 class Build extends Record {
 	
