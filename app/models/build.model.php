@@ -30,7 +30,11 @@ class Build extends Record {
 
 	function addTest($data) {
 		$test = new Test();
-		$test->output = $data;
+		$test->passes = $data->passes;
+		$test->failures = $data->failures;
+		$test->exceptions = $data->exceptions;
+		$test->result = $data->result;
+		$test->output = $data->output;
 		$this->tests = $test;
 	}
 	
@@ -42,6 +46,13 @@ class Build extends Record {
 		$report->warnings = $data->warnings;
 		$report->errors = $data->errors;
 		$this->reports = $report;
+	}
+	
+	function isGreen() {
+		foreach ($this->tests as $test) {
+			if (!$test->result) return false;
+		}
+		return true;
 	}
 	
 }
@@ -70,7 +81,7 @@ class Test extends Record {
 	function __define() {
 		$this->belongsTo("build");
 		$this->property("passes", "integer");
-		$this->property("fails", "integer");
+		$this->property("failures", "integer");
 		$this->property("exceptions", "integer");
 		$this->property("result", "boolean");
 		$this->property("output", "text");

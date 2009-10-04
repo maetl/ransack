@@ -36,6 +36,10 @@ h1,.tagline {
 	font-weight:bold;
 }
 
+h1 a {
+	color:white;
+}
+
 .wrap {
 	margin:0 auto;
 	width:960px;
@@ -78,10 +82,22 @@ p {
 }
 
 .log li .build-label {
-	background-color:#000;
 	color:#fff;
 	font-weight:bold;
 	padding:3px;
+}
+
+.build-label a {
+	color:white;
+	text-decoration:none;
+}
+
+.build-label.pass {
+	background-color:green;
+}
+
+.build-label.fail {
+	background-color:red;
 }
 
 .log .build-summary {
