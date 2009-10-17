@@ -36,6 +36,11 @@ class Project extends Record {
 		return $db->getRecord();
 	}
 	
+	function getBuilds() {
+		$this->storage->select("builds", "WHERE project_id='{$this->id}' ORDER BY at DESC");
+		return $this->storage->getRecords();
+	}
+	
 	function build() {
 		$build = new Build();
 		
