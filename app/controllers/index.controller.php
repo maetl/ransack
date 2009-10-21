@@ -1,5 +1,5 @@
 <?php
-require_once LIB_DIR.'spyc/Spyc.class.php';
+//require_once LIB_DIR.'spyc/Spyc.class.php';
 require_once MOD_DIR.'build.model.php';
 require_once MOD_DIR.'agent.service.php';
 
