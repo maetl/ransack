@@ -13,7 +13,7 @@ class BuildController extends IdentityController {
 	function start($name) {
 		$project = Project::findByName($name);
 		AgentService::startBuild($project);
-	}
+	} 
 	
 }
 
