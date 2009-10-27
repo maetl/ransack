@@ -42,7 +42,13 @@ class Project extends Record {
 		$this->storage->select("builds", "WHERE project_id='{$this->id}' ORDER BY at DESC");
 		return $this->storage->getRecords();
 	}
-	
+
+	function isBuildExpired($revision) {
+		$this->storage->select("builds", "WHERE project_id='{$this->id}' ORDER BY at DESC LIMIT 0,1");
+		$build = $this->storage->getRecord();
+		return ($revision > $build->identifier);
+	}
+
 	function build() {
 		$build = new Build();
 		$build->project = $this;
@@ -51,9 +57,9 @@ class Project extends Record {
 		// step 1. build the target
 		shell_exec("cd {$this->sourcePath}; {$this->buildCommand}");
 		
-		$svn = new SubversionRepository('');
+		$svn = new SubversionRepository($this->sourcePath);
 		$revision = $svn->getRevision();
-		if (Build::find($revision)) {
+		if ($this->isBuildExpired($revision)) {
 			throw new Exception("No new changes to build for {$this->title}");
 		}
 		$build->identifier = $revision;

@@ -41,7 +41,7 @@ class SubversionRepository {
 	}
 
 	function getRevision() {
-		$info = shell_exec("svn info");
+		$info = shell_exec("cd {$this->baseUrl} ; svn info");
 		preg_match("/(Revision:\s)([0-9]+)/", $info, $matches);
 		return $matches[2];
 	}
