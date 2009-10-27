@@ -39,7 +39,13 @@ class SubversionRepository {
 	function log() {
 		return shell_exec("svn log {$this->baseUrl} -r HEAD --xml");
 	}
-	
+
+	function getRevision() {
+		$info = shell_exec("svn info");
+		preg_match("/(Revision:\s)([0-9]+)/", $info, $matches);
+		return $matches[2];
+	}
+
 }
 
 ?>

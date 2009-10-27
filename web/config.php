@@ -20,11 +20,11 @@ require_once LIB_DIR .'floe/framework/Package.class.php';
 require_once LIB_DIR .'floe/server/Membrane.class.php';
 require_once LIB_DIR .'floe/server/receptors/IdentityDispatcher.class.php';
 
-define('DB_USER', 'default');
-define('DB_PASS', 'launch');
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'ransack');
+define('DB_USER', 'ki_bot');
+define('DB_PASS', '7tr7UVWyjVqvSsyP');
+define('DB_HOST', '192.168.11.41');
+define('DB_NAME', 'ki_projects');
 
-define('PATH_TO_PEAR', '/Applications/MAMP/bin/php5/bin/');
+define('PATH_TO_PEAR', '/usr/bin/');
 
 ?>

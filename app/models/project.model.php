@@ -1,5 +1,7 @@
 <?php
 Package::import('floe.repository.Record');
+Package::import('ransack.SubversionRepository');
+
 Using::model("Build");
 
 /**
@@ -18,9 +20,9 @@ class Project extends Record {
 		$this->property("testCommand", "string");
 		$this->property("codeStandard", "string");
 		$this->hasMany("builds");
-		$this->analysisPlugins[] = "Depend";
+		//$this->analysisPlugins[] = "Depend";
 		$this->analysisPlugins[] = "LineCount";
-		$this->analysisPlugins[] = "CodeSniffer";
+		//$this->analysisPlugins[] = "CodeSniffer";
 		$this->analysisPlugins[] = "CopyPasteDetector";
 	}
 	
@@ -43,9 +45,20 @@ class Project extends Record {
 	
 	function build() {
 		$build = new Build();
+		$build->project = $this;
+		$build->isComplete = false;	
 		
 		// step 1. build the target
 		shell_exec("cd {$this->sourcePath}; {$this->buildCommand}");
+		
+		$svn = new SubversionRepository('');
+		$revision = $svn->getRevision();
+		if (Build::find($revision)) {
+			throw new Exception("No new changes to build for {$this->title}");
+		}
+		$build->identifier = $revision;
+		$build->at = MOMENT;
+		$build->save();
 		
 		// step 2. run tests
 		require_once LIB_DIR."ransack/SimpleTestReport.class.php";
@@ -61,10 +74,8 @@ class Project extends Record {
 			$build->addReport($analyzer->getReport());
 		}
 		
-		$build->identifier = rand(999,9999);
 		$build->at = MOMENT;
 		$build->isComplete = true;
-		$build->project = $this;
 		$build->save();
 	}
 	
