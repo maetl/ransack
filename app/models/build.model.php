@@ -53,7 +53,23 @@ class Build extends Record {
 		}
 		return true;
 	}
-	
+
+	function getPassCount() {
+		$passes = 0;
+		foreach($this->tests as $test) {
+			$passes += $test->passes;
+		}
+		return $passes;
+	}
+
+	function getFailCount() {
+		$fails = 0;
+		foreach($this->tests as $test) {
+			$fails += $test->failures;
+		}
+		return $fails;
+	}
+
 }
 
 class Change extends Record {

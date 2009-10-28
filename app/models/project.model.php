@@ -37,7 +37,23 @@ class Project extends Record {
 		$db->selectByKey("projects", array("name"=>$name));
 		return $db->getRecord();
 	}
-	
+
+	function getPassCountSeries() {
+		$series = array();
+		foreach($this->builds as $build) {
+			$series[] = $build->passCount / 4;
+		}
+		return implode(',', array_reverse($series));
+	}
+
+	function getFailCountSeries() {
+		$series = array();
+		foreach($this->builds as $build) {
+			$series[] = $build->failCount / 4;
+		}
+		return implode(',', array_reverse($series));
+	}
+
 	function getBuilds() {
 		$this->storage->select("builds", "WHERE project_id='{$this->id}' ORDER BY at DESC");
 		return $this->storage->getRecords();
