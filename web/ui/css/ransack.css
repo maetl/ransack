@@ -4,7 +4,7 @@
 }
 
 body {
-	font-family:"Lucida Grande";
+	font-family:"Lucida Grande",Helvetica,arial,sans-serif;
 	font-size:10px;
 	line-height:18px;
 	background-color:#eee;
@@ -21,7 +21,7 @@ h1,.tagline {
 	margin:3px;
 	font-size:360%;
 	line-height:100%;
-	font-family:"American Typewriter","Courier";
+	font-family:"American Typewriter","Courier New",monospace;
 	background-color:#000;
 	float:left;
 	color:#fff;
@@ -31,7 +31,7 @@ h1,.tagline {
 .tagline {
 	font-size:360%;
 	line-height:100%;
-	font-family:"American Typewriter","Courier";
+	font-family:"American Typewriter","Courier New",monospace;
 	background-color:#fff;
 	float:left;
 	color:#000;

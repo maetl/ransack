@@ -13,7 +13,7 @@
 		<li>
 			<p class="build-label <?php echo $build->isGreen() ? 'pass' : 'fail'; ?>"><?php echo $test->passes; ?> passes, <?php echo $test->failures; ?> failures, and <?php echo $test->exceptions; ?> exceptions.</p>
 			<div class="build-summary">
-				<pre><?php echo $test->output; ?></pre>
+				<pre><?php echo wordwrap($test->output, 112); ?></pre>
 			</div>
 		</li>
 			
