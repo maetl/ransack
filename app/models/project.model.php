@@ -43,7 +43,7 @@ class Project extends Record {
 		return $this->storage->getRecords();
 	}
 
-	function isBuildExpired($revision) {
+	function isBuildUpdated($revision) {
 		$this->storage->select("builds", "WHERE project_id='{$this->id}' ORDER BY at DESC LIMIT 0,1");
 		$build = $this->storage->getRecord();
 		return ($revision > $build->identifier);
@@ -59,7 +59,7 @@ class Project extends Record {
 		
 		$svn = new SubversionRepository($this->sourcePath);
 		$revision = $svn->getRevision();
-		if ($this->isBuildExpired($revision)) {
+		if (!$this->isBuildUpdated($revision)) {
 			throw new Exception("No new changes to build for {$this->title}");
 		}
 		$build->identifier = $revision;
